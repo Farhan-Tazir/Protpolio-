@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MFT | Web Developer & Programmer</title>
+    <meta name="description" content="Portfolio of Farhan Tazir (MFT) - Web Developer & Programmer">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">MFT<span class="dot">.</span></div>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="hamburger">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+    </nav>
+
+    <header id="hero" class="hero-section">
+        <div class="hero-content">
+            <h3 class="welcome-text">Hello, I'm</h3>
+            <h1 class="main-heading">MFT</h1>
+            <h2 class="subtitle">Web Developer <span class="accent">&</span> Programmer</h2>
+            <div class="cta-buttons">
+                <a href="#projects" class="btn btn-primary">View Projects</a>
+                <a href="#contact" class="btn btn-secondary">Contact Me</a>
+            </div>
+        </div>
+        <div class="hero-image-container">
+            <!-- Using hero.jpg as requested -->
+            <img src="images/hero.jpg" alt="Farhan Tazir - MFT" class="hero-img">
+            <div class="glow-effect"></div>
+        </div>
+    </header>
+
+    <section id="about" class="about-section">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-image">
+                    <!-- Reusing hero.jpg or placeholder if 2nd image is missing -->
+                    <img src="images/hero.jpg" alt="About MFT" class="about-img">
+                </div>
+                <div class="about-text">
+                    <h3>I'm Farhan Tazir.</h3>
+                    <p>Also known as <strong>MFT</strong>. I am a passionate Web Developer and Programmer dedicated to building modern, responsive, and user-friendly web applications. With a strong foundation in coding and a keen eye for design, I transform ideas into seamless digital experiences.</p>
+                    <p>I specialize in creating clean, efficient code and intuitive user interfaces. Always learning and exploring new technologies to stay ahead in the digital world.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills, Projects, Contact sections will be populated in next steps to keep file manageable if needed, 
+         but for now I will generate the full structure as per plan since it's a single page app -->
+    
+    <section id="skills" class="skills-section">
+        <div class="container">
+            <h2 class="section-title">My Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <i class="fab fa-html5 skill-icon" style="color: #e34c26;"></i>
+                    <h3>HTML</h3>
+                </div>
+                <div class="skill-card">
+                    <i class="fab fa-css3-alt skill-icon" style="color: #264de4;"></i>
+                    <h3>CSS</h3>
+                </div>
+                <div class="skill-card">
+                    <i class="fab fa-js skill-icon" style="color: #f0db4f;"></i>
+                    <h3>JavaScript</h3>
+                </div>
+                <div class="skill-card">
+                    <!-- Using code icon for C++ generic representation or specific if available in FA -->
+                    <i class="fas fa-code skill-icon" style="color: #5e97d0;"></i>
+                    <h3>C++</h3>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-database skill-icon" style="color: #00758f;"></i>
+                    <h3>MySQL</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="projects-section">
+        <div class="container">
+            <h2 class="section-title">Featured Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-content">
+                        <h3>Portfolio Website</h3>
+                        <p>A modern personal portfolio website built with HTML, CSS, and JavaScript featuring a dark theme and glassmorphism design.</p>
+                        <a href="#" class="btn-sm">View Code</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-content">
+                        <h3>E-Commerce Interface</h3>
+                        <p>A responsive front-end for an e-commerce platform with product grids and cart functionality.</p>
+                        <a href="https://www.github.com/farhan-tazir/Essence/" class="btn-sm">View Code</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-content">
+                        <h3>Task Manager</h3>
+                        <p>A productivity tool to manage daily tasks with local storage integration.</p>
+                        <a href="#" class="btn-sm">View Code</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-wrapper">
+                <form class="contact-form">
+                    <div class="form-group">
+                        <input type="text" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea placeholder="Your Message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; <span id="year"></span> Farhan Tazir | MFT. All Rights Reserved.</p>
+        <div class="social-links">
+            <a href="https://www.github.com/farhan-tazir/"><i class="fab fa-github"></i></a>
+            <a href="https://wa.me/+923103546086"><i class="fab fa-whatsapp"></i></a>
+            <a href="mailto:031035farhan@gmail.com"><i class="fab fa-github"></i></a>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
