@@ -9,10 +9,10 @@ const links = document.querySelectorAll('.nav-links li');
 hamburger.addEventListener('click', () => {
     // Toggle Nav
     navLinks.classList.toggle('nav-active');
-    
+
     // Burger Animation
     hamburger.classList.toggle('toggle');
-    
+
     // Animate Links
     links.forEach((link, index) => {
         if (link.style.animation) {
@@ -38,17 +38,17 @@ links.forEach(link => {
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
-        
+
         const targetId = this.getAttribute('href');
         if (targetId === '#') return;
-        
+
         const targetElement = document.querySelector(targetId);
         if (targetElement) {
             // Account for fixed header
             const headerOffset = 80;
             const elementPosition = targetElement.getBoundingClientRect().top;
             const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-        
+
             window.scrollTo({
                 top: offsetPosition,
                 behavior: "smooth"
@@ -84,7 +84,7 @@ document.querySelectorAll('section').forEach(section => {
 // Intersect Handler
 const fadeInHandler = (entries) => {
     entries.forEach(entry => {
-        if(entry.isIntersecting) {
+        if (entry.isIntersecting) {
             entry.target.style.opacity = '1';
             entry.target.style.transform = 'translateY(0)';
         }
@@ -95,3 +95,33 @@ const sectionObserver = new IntersectionObserver(fadeInHandler, observerOptions)
 document.querySelectorAll('section').forEach(section => {
     sectionObserver.observe(section);
 });
+
+// Theme Toggle Logic
+const toggleSwitch = document.querySelector('.theme-toggle input[type="checkbox"]');
+const currentTheme = localStorage.getItem('theme');
+const profileImages = document.querySelectorAll('.hero-img, .about-img');
+
+// Initial Theme Check
+if (currentTheme) {
+    document.documentElement.setAttribute('data-theme', currentTheme);
+
+    if (currentTheme === 'light') {
+        toggleSwitch.checked = true;
+        profileImages.forEach(img => img.src = 'images/light-mode.jpg');
+    }
+}
+
+// Switch Theme Function
+function switchTheme(e) {
+    if (e.target.checked) {
+        document.documentElement.setAttribute('data-theme', 'light');
+        localStorage.setItem('theme', 'light');
+        profileImages.forEach(img => img.src = 'images/light-mode.jpg');
+    } else {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        localStorage.setItem('theme', 'dark');
+        profileImages.forEach(img => img.src = 'images/dark-mode.jpg');
+    }
+}
+
+toggleSwitch.addEventListener('change', switchTheme);

@@ -11,7 +11,204 @@
     --font-primary: 'Poppins', sans-serif;
 }
 
+[data-theme="light"] {
+    --bg-color: #F8FAFC;
+    --bg-dark: #ffffff;
+    --card-bg: rgba(255, 255, 255, 0.8);
+    --text-color: #1E293B;
+    --text-muted: #475569;
+    --accent-blue: #3B82F6;
+    --accent-purple: #14B8A6;
+    /* Using Teal as secondary accent */
+    --glow-shadow: 0 4px 20px rgba(59, 130, 246, 0.15);
+}
+
+/* Global Light Mode Typography Overrides */
+[data-theme="light"] h1,
+[data-theme="light"] h2,
+[data-theme="light"] h3 {
+    color: var(--text-color);
+}
+
+/* Light Mode Specific Overrides */
+[data-theme="light"] .main-heading {
+    background: linear-gradient(to right, #1E293B, #3B82F6);
+    /* Dark Slate to Blue */
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+[data-theme="light"] .btn-secondary {
+    color: var(--text-color);
+    border-color: var(--text-color);
+}
+
+[data-theme="light"] .btn-secondary:hover {
+    background: rgba(0, 0, 0, 0.05);
+    color: var(--accent-blue);
+    border-color: var(--accent-blue);
+}
+
+[data-theme="light"] .skill-card h3,
+[data-theme="light"] .project-card h3 {
+    color: var(--text-color);
+}
+
+[data-theme="light"] .project-card p {
+    color: var(--text-muted);
+}
+
+/* Glass effect for cards in light mode */
+[data-theme="light"] .skill-card,
+[data-theme="light"] .project-card,
+[data-theme="light"] .contact-wrapper {
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.6);
+    /* Slightly more transparent for glass feel */
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+[data-theme="light"] .navbar {
+    background: rgba(255, 255, 255, 0.85);
+    /* Slightly less transparent */
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Theme Toggle */
+.theme-toggle {
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
+    /* Separate from nav links */
+    position: relative;
+    z-index: 100;
+}
+
+.checkbox {
+    opacity: 0;
+    position: absolute;
+}
+
+.checkbox-label {
+    width: 60px;
+    height: 30px;
+    border-radius: 50px;
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+    transition: all 0.4s ease;
+
+    /* Dark Mode Default Style */
+    background-color: #0f172a;
+    box-shadow:
+        inset 0 2px 5px rgba(0, 0, 0, 0.4),
+        0 0 10px rgba(188, 19, 254, 0.5),
+        /* Neon Purple Glow */
+        0 0 20px rgba(0, 243, 255, 0.3);
+    /* Neon Blue Glow */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Light Mode Style (Checked) */
+.checkbox:checked+.checkbox-label {
+    background-color: #3B82F6;
+    /* Sky Blue */
+    box-shadow:
+        inset 0 2px 5px rgba(0, 0, 0, 0.2),
+        0 4px 10px rgba(59, 130, 246, 0.4);
+    /* Soft Shadow */
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Icons within the toggle */
+.fa-moon {
+    color: #f1c40f;
+    transition: all 0.4s ease;
+    font-size: 14px;
+    opacity: 1;
+    transform: scale(1);
+    position: absolute;
+    right: 8px;
+    z-index: 1;
+}
+
+.fa-sun {
+    color: #fff;
+    transition: all 0.4s ease;
+    font-size: 14px;
+    opacity: 0;
+    transform: scale(0.5);
+    position: absolute;
+    left: 8px;
+    z-index: 1;
+}
+
+/* Hide sun in dark mode, Hide moon in light mode */
+.checkbox:checked+.checkbox-label .fa-moon {
+    opacity: 0;
+    transform: scale(0.5);
+}
+
+.checkbox:checked+.checkbox-label .fa-sun {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* The Sliding Ball */
+.checkbox-label .ball {
+    background-color: #fff;
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    left: 3px;
+    top: 2px;
+    border-radius: 50%;
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    /* Bouncy Apple-like effect */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    z-index: 2;
+}
+
+/* Move ball in Light Mode */
+.checkbox:checked+.checkbox-label .ball {
+    transform: translateX(30px);
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Hover Effects */
+.checkbox-label:hover {
+    transform: scale(1.05);
+    /* Slight zoom */
+}
+
+/* Dark Mode Hover Glow */
+.checkbox-label:hover {
+    border-color: var(--accent-blue);
+}
+
+.checkbox:not(:checked)+.checkbox-label:hover {
+    box-shadow:
+        inset 0 2px 5px rgba(0, 0, 0, 0.4),
+        0 0 15px rgba(188, 19, 254, 0.7),
+        0 0 30px rgba(0, 243, 255, 0.5);
+}
+
+/* Light Mode Hover Glow */
+.checkbox:checked+.checkbox-label:hover {
+    box-shadow:
+        inset 0 2px 5px rgba(0, 0, 0, 0.2),
+        0 0 15px rgba(59, 130, 246, 0.6);
+}
+
+
 * {
+
     margin: 0;
     padding: 0;
     box-sizing: border-box;
